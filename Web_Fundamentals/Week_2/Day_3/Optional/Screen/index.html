@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="navleft">
+                <img src="images/cat.png" alt="">
+                <h1>CodeIt</h1>
+                <input type="text" id="textAlert">
+                <button onclick="showAlert()">Go</button>
+            </div>
+            <div class="navright">
+                <button>Get App</button>
+                <button>Log In</button>
+            </div>
+        </div>
+        <div class="subnav">
+            <img src="images/cat.png" alt="">
+            <h1>c/Dojo</h1>
+            <button onclick="removeButton(this)">Join</button>
+        </div>
+        <div class="submenu">
+            <ul>
+                <li>Posts</li>
+                <li>Wiki</li>
+                <li>c/Dojo</li>
+                <li>Discord</li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="mainleft">
+                <div class="post">
+                    <div class="votes">
+                        <img src="images/up-arrow.png" alt="up-arrow" onclick="plusOne('#number1')">
+                        <h3 id="number1">29</h3>
+                        <img src="images/down-arrow.png" alt="down-arrow" onclick="minusOne('number1')">
+                    </div>
+                    <div class="content">
+                        <h2>Best of Project Week 2022!</h2>
+                        <img src="images/image1.webp" alt="image1">
+                        <div class="comments">
+                            <img src="images/chat.png" alt="chat">
+                            <p>42 comments</p>
+                            <img src="images/share.png" alt="share">
+                            <p>share</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="post">
+                    <div class="votes">
+                        <img src="images/up-arrow.png" alt="">
+                        <h3>17</h3>
+                        <img src="images/down-arrow.png" alt="">
+                    </div>
+                    <div class="content">
+                        <h2>I use my cat as a rubber duck, is that weird?</h2>
+                        <img src="images/image2.webp" alt="image2">
+                        <div class="comments">
+                            <img src="images/chat.png" alt="chat">
+                            <p>16 comments</p>
+                            <img src="images/share.png" alt="share">
+                            <p>share</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mainright">
+                <div class="card">
+                    <h3>About the Dojo</h3>
+                    <p>Changing Lives with Code and a dedicated community of debuggers!</p>
+                </div>
+                <div class="card">
+                    <h3>Discord</h3>
+                    <Button>discord.gg/cdojo</Button>
+                </div>
+                <div class="card">
+                    <h3>c/Dojo Rules</h3>
+                    <ol>
+                        <li>Follow the 20 Minute Rule!</li>
+                        <li>Don't compare yourself to others!</li>
+                        <li>Learn Actively</li>
+                        <li>Don't Chase Best Practices (Yet)</li>
+                        <li>When you're behind,ask for help!</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
