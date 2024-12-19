@@ -1,0 +1,38 @@
+*{
+    margin: auto 0%;
+    padding: 3px;
+}
+
+.nav {
+    display: flex;
+    justify-content: baseline;
+    gap: 800px;
+    background-color:#333333;
+}
+
+.nav ul {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    color: #333333;
+}
+.nav button {
+    background-color: #17A2B8;
+    color: white;
+    border: black solid 2px;
+    box-shadow: 5px 5px black;
+}
+
+a {
+    color: silver;
+    text-decoration: none;
+}
+
+.active {
+    color: white;
+}
+
+h1 {
+    margin-left: 20px;
+    color: white;
+}
