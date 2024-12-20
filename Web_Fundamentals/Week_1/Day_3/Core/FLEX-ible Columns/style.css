@@ -1,0 +1,38 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+}
+.row{
+    justify-content: space-between;
+    display: flex;
+    padding: 30px;
+}
+.col{
+    flex: 1;
+    background-color: #649EA0;
+    padding: 30px;
+    margin: 20px;
+
+}
+.col-2{
+    flex: 1;
+    flex: 2;
+    background-color: #649EA0;
+    padding: 30px;
+    margin: 20px;
+
+}
+.col-3{
+    flex: 1;
+    flex: 3;
+    background-color: #649EA0;
+    padding: 30px;
+    margin: 20px;
+}
