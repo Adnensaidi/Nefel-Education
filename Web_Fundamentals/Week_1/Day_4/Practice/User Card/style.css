@@ -1,0 +1,38 @@
+.container {
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 950px;
+    height: 470px;
+    background-color: #17A2B8;
+    border: 4px solid silver;
+}
+.navbar img {
+    height:150px;
+    position: relative;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+.navbar{
+    height: 130px;
+}
+.main {
+    background-color:white;
+    border: silver;
+    height: 243px;
+    padding: 40px;
+    margin-top: 20px;
+}
+.link {
+    display: flex;
+    justify-content: baseline;
+    align-items:center;
+    gap: 10px;
+    font-size: large;
+}
+.link img {
+    height: 40px;
+}
+
+P {
+    font-size: large;
+}
