@@ -111,9 +111,6 @@ h3 {
 
 .allcontainer { 
     display: flex;
-    position: absolute;
-    left: 100px;
-    gap: 200px;
 }
 
 .profile-connection {
