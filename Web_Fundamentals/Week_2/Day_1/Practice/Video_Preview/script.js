@@ -1,16 +1,11 @@
+var video = document.querySelector("video")
 
-function playVideo(vid) {
-    vid.play();
+function playVideo() {
+    video.play();
+    video.muted = false;
 }
 
-function pauseVideo(vid) {
-    vid.pause();
-    vid.currentTime = 0;
+function pauseVideo() {
+    video.pause();
+    video.currentTime = 0;
 }
-    // function over(element) {
-    //     alert("mouseover");    
-    // }
-        
-    // function out(element) {
-    //     alert("mouseout");    
-    // }
