@@ -1,25 +1,27 @@
-var sandwich = {
-    bread:    "sourdough",
-    protein:  "london broil",
-    cheese:   "lacey swiss cheese",
-    toppings: ["romaine lettuce", "heirloom tomatoes", "horseradish sauce"]
-};
+//. 1. Creating the pizzaOven Function
+function pizzaOven(crustType, sauceType, cheeses, toppings) {
+    var pizza = {};
     
-console.log(sandwich);
-
-function pizzaOven {
-    
+    pizza.crustType = crustType; 
+    pizza.sauceType = sauceType; 
+    pizza.cheeses = cheeses;     
+    pizza.toppings = toppings;   
+    return pizza;
 }
-return Pizza;
 
-function sandwichFactory(bread, protein, cheese, toppings) {
-    var sandwich = {};
-    sandwich.bread = bread;
-    sandwich.protein = protein;
-    sandwich.cheese = cheese;
-    sandwich.toppings = toppings;
-    return sandwich;
-}
-    
-var s1 = sandwichFactory("wheat", "turkey", "provolone", ["mustard", "fried onions", "arugula"]);
-console.log(s1);
+// 2. Making Pizzas
+
+var pizza1 = pizzaOven("deep dish", "traditional", ["mozzarella"], ["pepperoni", "sausage"]);
+console.log(pizza1);
+
+// 3: Hand-Tossed Veggie Pizza
+
+var pizza2 = pizzaOven("hand tossed", "marinara", ["mozzarella", "feta"], ["mushrooms", "olives", "onions"]);
+console.log(pizza2);
+
+// 4 Bonus: Random Pizza
+
+var crustTypes = ["deep dish", "hand tossed", "thin crust", "gluten-free"];
+var sauceTypes = ["traditional", "marinara", "alfredo", "pesto"];
+var cheeseOptions = ["mozzarella", "cheddar", "parmesan", "feta"];
+var toppingOptions = ["pepperoni", "sausage", "mushrooms", "olives", "onions", "spinach"];
