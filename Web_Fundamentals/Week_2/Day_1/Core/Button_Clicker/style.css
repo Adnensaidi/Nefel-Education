@@ -10,55 +10,100 @@
 
 .navbar {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: #cccccc;
-    height: 50px;
+    height: 80px;
+    width: 99%;
 }
 .navbar button {
-    margin: 20px;
-    height: 20px;
+    margin: 50px;
+    height: 30px;
+    width: 55px;
     background-color: blue;
+    border: solid black;
+    box-shadow: 10px 1px black;
     color: white;
 }
-
+.navbar input {
+    width: 350px;
+    height: 30px;
+}
 
 .main {
     display: flex;
     border: 2px solid black;
-    margin: 20px;
-    padding: 50px;
+    margin: 10px;
+    padding: 10px;
     text-align: center;
+    align-items: center;
+    font-size: x-large;
+    font-weight: bold;
+}
+.main_head , .footer_head {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 .footer {
     display: flex;
     border: 2px solid black;
-    margin: 20px;
-    padding: 50px;
+    margin: 10px;
+    padding: 20px;
+    align-items: center;
     text-align: center;
+    font-size: x-large;
+    font-weight: bold;
 }
 
 .footer button , .main button {
     background-color: #ffd966;
     padding: 5px;
     width: 100px;
+    font-weight: bold;
 }
-
+.ninja {
+    flex: 2;
+}
+.ninja button {
+    box-shadow: 2px 3px ;
+    font-weight: bold;
+}
 .dojo {
     width: 150px;
     height: 100px;
-    padding: 10px;
-    margin: 20px;
+    padding: 20px;
+    margin: 10px;
     border: 2px solid black;
     font-size:larger;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
+    text-align: start;
+    font-size: x-large;
+    font-weight: bold;
+}
+.dojo p span {
+    font-weight: bold;
+}
+.dojo p {
+    margin-right: 150px;
+}
+.box h4 , p {
+    font-weight: normal;
 }
 .dojo button {
     background-color: #93c47d;
     padding: 5px;
     width: 150px;
+    margin-left: 50px;
+    box-shadow: 2px 3px ;
 }
 
 .box {
     display: flex;
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
 a{
