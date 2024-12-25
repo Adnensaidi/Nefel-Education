@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="nav">
+        <div class="flex-container">
+            <h1 class="nav-title">DojoWeather</h1>
+            <ul class="nav-links" onclick="alert('Loading weather report...')">
+                <li><a href="#">Burbank</a></li>
+                <li><a href="#">Chicago</a></li>
+                <li><a href="#">Dallas</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="main">
+        <div class="header_main">
+            <div class="user">
+                <h1>San Jose</h1>
+            </div>
+            <div class="temperature">
+                <label for="">show temperature in</label>
+                <select id="tempUnit">
+                    <option value="°C">°C</option>
+                    <option value="celsius">Celsius</option>
+                    <option value="fahrenheit">Fahrenheit</option>
+                </select>
+            </div>
+        </div>
+        <div class="box">
+            <div class="box_temperature">
+                <h2>Today</h2>
+                <img src="assets/some_rain.png" alt="">
+                <h2>some rain</h2>
+                <div class="temp">
+                    <h1 class="temperature_one">24°</h1>
+                    <h1 class="temperature_two">18°</h1>
+                </div>
+            </div>
+            <div class="box_temperature">
+                <h2>Tomorrow</h2>
+                <img src="assets/some_sun.png" alt="">
+                <h2>some sun</h2>
+                <div class="temp">
+                    <h1 class="temperature_one">27°</h1>
+                    <h1 class="temperature_two">19°</h1>
+                </div>
+            </div>
+            <div class="box_temperature">
+                <h2>Friday</h2>
+                <img src="assets/some_clouds.png" alt="">
+                <h2>some clouds</h2>
+                <div class="temp">
+                    <h1 class="temperature_one">21°</h1>
+                    <h1 class="temperature_two">16°</h1>
+                </div>
+            </div>
+            <div class="box_temperature">
+                <h2>Saturday</h2>
+                <img src="assets/some_sun.png" alt="">
+                <h2>some sun</h2>
+                <div class="temp">
+                    <h1 class="temperature_one">26°</h1>
+                    <h1 class="temperature_two">21°</h1>
+                </div>
+            </div>
+        </div>
+            <div class="footer">
+                <img src="assets/cookie.png" alt="cookie">
+                <div class="text">
+                <h1>Stop! Cookie time</h1>
+                <p>We use cookies (sadly not the edible ones) to personalize 
+                    <br> content and ads, to provide social media features and to 
+                    <br> analyse our traffic. 
+                    <a href="#">Read more...</a>
+                </div>
+                    <button class="removebtn" onclick="removeFooter('.footer')">I Accept</button>
+                </p>
+            </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
