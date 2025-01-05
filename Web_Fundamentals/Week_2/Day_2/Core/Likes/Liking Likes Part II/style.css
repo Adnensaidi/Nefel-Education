@@ -1,67 +1,32 @@
 * {
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
 }
-
 body {
-
     background-color: #f0f0f0; 
 }
+/* ----------------------------------Nav_Bar---------------------------------- */
 
-h1 {
+.navbar {
+    color: white;
+    padding: 20px; 
+    margin: 0 auto;
+    background-color: black; 
+    width: 80%;
+}
+.navbar h1 {
     display: flex;
     justify-content: start;
+    text-align: start;
 }
-
-.network-title {
-    background-color: black; 
-    color: white;
-    text-align: center; 
-    padding: 20px; 
-}
-
-.main-container {
-    display: flex;
-    justify-content: center; 
-    align-items: flex-start; 
-    margin: 20px auto;
-}
-
-.avatar-container {
-    width: 150px; 
-    height: 200px;
-    display: flex;
-    gap: 20px;
-    flex-direction: column;
-    align-items:center;
-    margin-right: 40px; 
-    border: 2px solid black;
-}
-
-.avatar img {
-    border-radius: 50%;
-    width: 80px;
-    height: 100px;
-}
-
-.add-avatar {
-    color: blue;
-}
+/* ----------------------------------Container---------------------------------- */
 
 .container {
     display: flex;
-    flex-direction: column; 
+    justify-content: center; 
+    align-items: flex-start; 
+    margin: 50px;
 }
-
-.user {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-    border: 2px solid black; 
-    padding: 10px; }
-
 .container button {
     background-color: #f2ca4e;
     padding: 10px;
@@ -70,4 +35,46 @@ h1 {
     border: 3px solid black;
     box-shadow: 5px 2px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.title{
+    text-align: center;
+}
+
+/* ----------------------------------Left_main---------------------------------- */
+
+.left_main {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 40px;
+    border: 2px solid black;
+    padding: 20px;
+}
+.left_main img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+/* ----------------------------------Right_main---------------------------------- */
+
+.user {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    border: 2px solid black; 
+    padding: 10px;
+    width: 500px;
+}
+
+.user_like{
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
 }

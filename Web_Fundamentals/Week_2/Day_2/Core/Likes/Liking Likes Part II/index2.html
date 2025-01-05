@@ -7,32 +7,41 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 class="network-title">Network</h1>
-    <div class="main-container">
-        <div class="avatar-container">
-            <div class="avatar">
-                <img src="phil-s.jpg" alt="">
-            </div>
-            <span class="add-avatar">Add an avatar</span>
+    <div class="navbar">
+        <h1>Network</h1>
+    </div>
+    <div class="title">
+        <h1>Your Feed</h1>
+    </div>
+    <div class="container">
+        <div class="left_main">
+            <img src="./Assets/phil-s.jpg" alt="phil-s">
+            <a href="">Add an avatar</a>
             <p>James Doe</p>
         </div>
-        <div class="container">
+        <div class="right_main">
             <div class="user">
-                <h2>Neil M</h2>
-                <h3 class="count">9 like(s)</h3>
-                <button class="like" onclick="addLike(0)">Like</button>
+                <div class="user_like">
+                    <h2>Neil M</h2>
+                    <h3 class="count">9 like(s)</h3>
+                    <button class="like" onclick="addLike(0)">Like</button>
+                </div>
                 <p>I just set up this new discord bot,<br> let me know what you all think.</p>
             </div>
             <div class="user">
-                <h2>Nichole K</h2>
-                <h3 class="count">12 like(s)</h3>
-                <button class="like" onclick="addLike(1)">Like</button>
+                <div class="user_like">
+                    <h2>Nichole K</h2>
+                    <h3 class="count">12 like(s)</h3>
+                    <button class="like" onclick="addLike(1)">Like</button>
+                </div>
                 <p>Just finished my <span class="next-comic">next comic</span><br> check it out.</p>
             </div>
             <div class="user">
-                <h2>Jim R</h2>
-                <h3 class="count">9 like(s)</h3>
-                <button class="like" onclick="addLike(2)">Like</button>
+                <div class="user_like">
+                    <h2>Jim R</h2>
+                    <h3 class="count">9 like(s)</h3>
+                    <button class="like" onclick="addLike(2)">Like</button>
+                </div>
                 <p>I can't stop listening to the <span class="new-album">new album</span><br> who else is liking it?</p>
             </div>
         </div>
