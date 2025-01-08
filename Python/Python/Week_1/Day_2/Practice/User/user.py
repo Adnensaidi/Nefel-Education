@@ -26,5 +26,3 @@ class User:
             
     def spend_points(self, amount):
         self.gold_card_points
-
-    
