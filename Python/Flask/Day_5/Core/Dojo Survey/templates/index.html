@@ -7,32 +7,45 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" >
 </head>
 <body>
-    <form action="/process" method="post">
-        <div>
-            <label>Name:</label>
-            <input type="text" name="name">
-        </div>
-        <div>
-            <label>Dojo Location:</label>
-            <select name="location">
-                <option>San Jose</option>
-                <option>Seattle</option>
-                <option>Chicago</option>
-            </select>
-        </div>
-        <div>
-            <label>Favorite Language:</label>
-            <select name="language">
-                <option>Python</option>
-                <option>JavaScript</option>
-                <option>Java</option>
-            </select>
-        </div>
-        <div>
-            <label>Comments:</label>
-            <textarea name="comments"></textarea>
-        </div>
-        <button type="submit">Submit</button>
-    </form>
+    <div class="container">
+        <h1>Dojo Survey</h1>
+        <form action="/process" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="location">Location:</label>
+            <select id="location" name="location">
+                <option value="San Jose">San Jose</option>
+                <option value="Seattle">Seattle</option>
+                <option value="Chicago">Chicago</option>
+            </select><br>
+
+            <label for="language">Favorite Language:</label>
+            <select id="language" name="language">
+                <option value="Python">Python</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="C#">C#</option>
+            </select><br>
+
+            <label>Gender:</label><br>
+            <input type="radio" id="male" name="gender" value="Male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="Female">
+            <label for="female">Female</label><br>
+
+            <label>Interests:</label><br>
+            <input type="checkbox" id="coding" name="interests" value="Coding">
+            <label for="coding">Coding</label>
+            <input type="checkbox" id="sports" name="interests" value="Sports">
+            <label for="sports">Sports</label>
+            <input type="checkbox" id="music" name="interests" value="Music">
+            <label for="music">Music</label><br>
+
+            <label for="comment">Comment:</label><br>
+            <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 </body>
 </html>

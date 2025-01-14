@@ -1,34 +1,41 @@
-from flask import Flask, render_template, request, session, redirect
+from flask import Flask, render_template, session, redirect, request
 import random
 
 app = Flask(__name__)
-app.secret_key = 'Adnen_Saidi'
-
+app.secret_key = 'supersecretkey'  # Clé secrète pour la session
 
 @app.route('/')
 def index():
-    if 'number' not in session:
-        session['number'] = random.randint(1, 100)
+    # Initialiser un nombre aléatoire s'il n'existe pas déjà dans la session
+    if 'random_number' not in session:
+        session['random_number'] = random.randint(1, 100)
+        session['attempts'] = 0  # Nombre de tentatives
     return render_template('index.html')
 
 @app.route('/guess', methods=['POST'])
 def guess():
-    guess = int(request.form['guess'])
-    if guess < session['number']:
-        session['result'] = 'low'
+    # Récupérer la supposition de l'utilisateur depuis le formulaire
+    user_guess = int(request.form['guess'])
+    session['attempts'] += 1  # Augmenter le nombre de tentatives
+
+    # Comparer la supposition avec le nombre aléatoire
+    if user_guess < session['random_number']:
         session['message'] = 'Too low!'
-    elif guess > session['number']:
-        session['result'] = 'high'
+        session['color'] = 'red'
+    elif user_guess > session['random_number']:
         session['message'] = 'Too high!'
+        session['color'] = 'red'
     else:
-        session['result'] = 'correct'
-        session['message'] = f'Correct! The number was {session["number"]}'
+        session['message'] = f'Correct! You guessed it in {session["attempts"]} attempts.'
+        session['color'] = 'green'
+        session['game_over'] = True  # Marquer le jeu comme terminé
+
     return redirect('/')
 
 @app.route('/reset')
 def reset():
-    session.clear()
+    session.clear()  # Réinitialiser la session
     return redirect('/')
 
-if __name__=="__main__":
+if __name__ == '__main__':
     app.run(debug=True)

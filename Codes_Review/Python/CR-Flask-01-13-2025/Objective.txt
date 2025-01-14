@@ -1,0 +1,39 @@
+
+1/ Task 1: Set up the Flask application.
+=> Install Flask .
+=> Set up a basic Python file (server.py)
+
+2/ Task 4: Set up the static files.
+
+=> Set up a static directory to store non-dynamic content like CSS and images.
+=> Create and link a CSS file (styles.css) to style the HTML templates.
+=> Add any images necessary for the website design to the static/images directory.
+
+3/ Task 2: Define the routes in server.py.
+
+=> '/' : Define the home route to render a basic home page (index.html).
+=> '/contact_list' : Define a route to display all contacts.
+=> /add_contact' : Define a route for rendering the contact addition form.
+=> '/new_contact' : Handle the form submission for adding a new contact.
+=> '/display_new_contact' : Define a route to display the most recently added contact.
+=> '/reset' : Implement a route to clear session data and redirect to the home page.
+
+
+4/ Task 3: Create the HTML templates.
+
+=> index.html: Create the home page with navigation links to other sections of the site.
+=> contact_list.html: Create a page that displays a table with all the contacts.
+=> add_contact.html: Design a form that allows users to input data for a new contact.
+=> display_new_contact.html: Design a page to display the details of the most recently added contact.
+
+5/ Task 5: Run the Flask application.
+
+=> Run the Flask application.
+=> Access and interact with the app.
+
+
+
+
+
+
+

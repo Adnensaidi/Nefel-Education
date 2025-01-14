@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Code Review</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}" >
+</head>
+<body>
+    <!-- # step 5 - 4 -->
+        <div class="navbar">
+            <a href="/">Home</a>
+            <a href="/contact_list">Contact List</a>
+            <a href="/add_contact">Add Contact</a>
+            <a href="display">Contact</a>
+        </div>
+        <div class="container">
+            <h1>Last Contact Added</h1>
+            <table class="contact_table">
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Age</th>
+                    <th>Country</th>
+                </tr>
+            {% for contact in contacts %}
+            <tr>
+                <td>{{contact['username']}}</td>
+                <td>{{contact['email']}}</td>
+                <td>{{contact['phone']}}</td>
+                <td>{{contact['age']}}</td>
+                <td>{{contact['country']}}</td>
+            </tr>
+            <a href="/reset"><button>Reset</button></a>
+        </div>
+</body>
+</html>

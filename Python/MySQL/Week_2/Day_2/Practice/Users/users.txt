@@ -1,0 +1,12 @@
+SELECT * FROM users_schema.users;
+INSERT INTO users (first_name, last_name) 
+VALUES ('Ali', 'Saoudi'),('Youssef', 'Jmayel'),('Sarah', 'abdelkader');
+SELECT * FROM users ;
+UPDATE users SET email = "adnen_said@gmail.com" ;
+SELECT * FROM users WHERE email = "adnen_saidi@gmail.com" ;
+SELECT * FROM users WHERE id = (SELECT MAX(id) FROM users);
+UPDATE users SET last_name = 'Pancakes' WHERE id = 3;
+DELETE FROM users WHERE id = 2;
+SELECT * FROM users ORDER BY first_name;
+SELECT * FROM users ORDER BY first_name DESC;
+
