@@ -1,0 +1,12 @@
+SELECT * FROM dojos_and_ninjas_schema.ninjas;
+INSERT INTO ninjas (first_name, last_name, age , dojo_id) 
+VALUES ('Lamjad' ,'Benabdallah' , 24, 4), ('Ahmed','lahwel',25, 4), ('Sarah','ageb','29', 4);
+INSERT INTO ninjas (first_name, last_name, age , dojo_id) 
+VALUES ('Lamjad' ,'Benabdallah' , 24, 5), ('Ahmed','lahwel',25, 5), ('Sarah','ageb','29', 5);
+INSERT INTO ninjas (first_name, last_name, age , dojo_id) 
+VALUES ('Lamjad' ,'Benabdallah' , 24, 6), ('Ahmed','lahwel',25, 6), ('Sarah','ageb','29', 6);
+SELECT * FROM ninjas WHERE dojo_id = (SELECT MAX(id) FROM dojos);
+SELECT * FROM dojos WHERE id = (SELECT dojo_id FROM ninjas ORDER BY id DESC LIMIT 1);
+SELECT * FROM ninjas, dojos WHERE ninjas.id = 6 AND ninjas.dojo_id = dojos.id;
+SELECT * FROM ninjas, dojos WHERE ninjas.dojo_id = dojos.id;
+
