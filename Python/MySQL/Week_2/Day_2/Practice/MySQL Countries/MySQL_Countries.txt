@@ -1,0 +1,42 @@
+SELECT * FROM world.country;
+SELECT Country.Name AS Country, 
+       CountryLanguage.Language, 
+       CountryLanguage.Percentage
+FROM CountryLanguage
+JOIN Country ON Country.Code = CountryLanguage.CountryCode
+WHERE CountryLanguage.Percentage > 89
+ORDER BY CountryLanguage.Percentage DESC;
+
+SELECT Name AS Country, 
+       SurfaceArea, 
+       Population
+FROM Country
+WHERE SurfaceArea < 501 
+  AND Population > 100000;
+
+
+SELECT Name AS Country, 
+       GovernmentForm, 
+       Capital, 
+       LifeExpectancy
+FROM Country
+WHERE GovernmentForm = 'Constitutional Monarchy' 
+  AND Capital > 200 
+  AND LifeExpectancy > 75;
+
+
+SELECT Country.Name AS Country, 
+       City.Name AS City, 
+       City.District, 
+       City.Population
+FROM City
+JOIN Country ON City.CountryCode = Country.Code
+WHERE Country.Name = 'Argentina' 
+  AND City.District = 'Buenos Aires' 
+  AND City.Population > 500000;
+SELECT Region, 
+       COUNT(Code) AS NumberOfCountries
+FROM Country
+GROUP BY Region
+ORDER BY NumberOfCountries DESC;
+
