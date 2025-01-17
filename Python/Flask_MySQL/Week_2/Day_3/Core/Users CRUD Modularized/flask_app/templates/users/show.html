@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Read (One)</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h2>User {{ user.id }}</h2>
+            </div>
+            <div class="card-body">
+                <p><strong>Full Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <p><strong>Created On:</strong> {{ user.created_at }}</p>
+                <p><strong>Last Updated On:</strong> {{ user.updated_at }}</p>
+            </div>
+            <div class="card-footer">
+                <a href="/users/{{ user.id }}/edit" class="btn btn-warning">Edit</a>
+                <a href="/users/{{ user.id }}/destroy" class="btn btn-danger">Delete</a>
+                <a href="/users" class="btn btn-primary">Home</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
