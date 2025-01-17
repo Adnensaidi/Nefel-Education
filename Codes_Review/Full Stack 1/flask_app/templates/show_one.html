@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Expense Details</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-sm-4 fw-bold">Category:</div>
+                        <div class="col-sm-8">{{expense.category}}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-4 fw-bold">Description:</div>
+                        <div class="col-sm-8">{{expense.description}}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-4 fw-bold">Amount:</div>
+                        <div class="col-sm-8 text-success">${{expense.amount}}</div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-4 fw-bold">Date:</div>
+                        <div class="col-sm-8">{{expense.expense_date}}</div>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="/expenses" class="btn btn-secondary me-2">Back to List</a>
+                    <a href="/expenses/edit/{{expense.id}}"  class="btn btn-warning me-2">Edit Expense</a>
+                    <form action="/expenses/delete/{{expense.id}}" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

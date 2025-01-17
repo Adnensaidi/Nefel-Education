@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 800px;
+        }
+        .section {
+            width: 45%;
+        }
+        .dojo-list {
+            border: 1px solid #000;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .dojo-list a {
+            display: block;
+            color: blue;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+        input[type="text"] {
+            margin: 10px 0;
+        }
+        .add-ninja {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section">
+            <h2>New Dojo</h2>
+            <form action="/dojos/create" method="post">
+                <label for="name">Name:</label><br>
+                <input type="text" name="name" id="name"><br>
+                <input type="submit" value="Create">
+            </form>
+        </div>
+        <div class="section">
+            <h2>All Dojos</h2>
+            <div class="dojo-list">
+                {% for dojo in dojos %}
+                    <a href="/dojos/{{dojo.id}}">{{dojo.name}}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="add-ninja">
+        <a href="/ninjas" style="color: blue;">Add Ninja</a>
+    </div>
+</body>
+</html>
+
