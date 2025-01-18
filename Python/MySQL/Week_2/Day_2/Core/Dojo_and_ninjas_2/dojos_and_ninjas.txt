@@ -1,0 +1,17 @@
+SELECT * FROM dojos_n_ninjas_schema.dojos;
+INSERT INTO dojos (name) VALUES 
+('Dojo A'), 
+('Dojo B'), 
+('Dojo C');
+DELETE dojos 
+FROM dojos 
+JOIN (SELECT id FROM dojos WHERE name IN ('Dojo A', 'Dojo B', 'Dojo C')) AS temp 
+ON dojos.id = temp.id;
+INSERT INTO dojos (name) VALUES 
+('Abdallah'), 
+('Idriss'), 
+('Dojo Z');
+SELECT dojos.name 
+FROM dojos 
+JOIN ninjas ON ninjas.dojo_id = dojos.id 
+WHERE ninjas.id = (SELECT MAX(id) FROM ninjas);
