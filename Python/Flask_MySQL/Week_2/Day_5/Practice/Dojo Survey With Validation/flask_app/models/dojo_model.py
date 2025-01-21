@@ -7,22 +7,23 @@ class Dojo:
         self.name = data['name']
         self.location = data['location']
         self.language = data['language']
-        self.comment = data['comment']
+        self.comments = data['comments']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
     @classmethod
-    def save(cls,data):
-        query = "INSERT into dojos (name,location,language,comments) VALUES (%(name)s,%(location)s,%(language)s,%(comments)s);"
-        return connectToMySQL('dojo_survey_schema').query_db(query,data)
+    def save(cls, data):
+        query = """
+        INSERT INTO dojos (name, location, language, comments)
+        VALUES (%(name)s, %(location)s, %(language)s, %(comments)s);
+        """
+        return connectToMySQL('dojo_survey_schema').query_db(query, data)
 
-    @staticmethod
-    def get_last_dojos():
+    @classmethod
+    def get_last_dojo(cls):
         query = "SELECT * FROM dojos ORDER BY id DESC LIMIT 1;"
         results = connectToMySQL('dojo_survey_schema').query_db(query)
-        if not results or len(results) == 0:
-            return None
-        return Dojo(results[0])
+        return cls(results[0]) if results else None
 
     @staticmethod
     def is_valid(dojo):

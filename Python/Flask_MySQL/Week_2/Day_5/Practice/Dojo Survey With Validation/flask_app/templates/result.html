@@ -10,18 +10,13 @@
 <body>
     <div class="card bg-dark text-light col-5 mx-auto my-5">
         <div class="card-body">
-            {% if dojo %}
-                <h1 class="text-primary">{{ dojo.name }}</h1>
-                <p class="card-text">Dojo Location: {{ dojo.location }}</p>
-                <p class="card-text">Favorite Language: {{ dojo.language }}</p>
-                <p class="card-text">Comments: {{ dojo.comments }}</p>
-            {% else %}
-                <h1 class="text-danger">No dojo found!</h1>
-                <p class="card-text">It seems no dojo data is available at the moment.</p>
-            {% endif %}
+            <h1 class="text-primary">{{ dojo.name }}</h1>
+            <p class="card-text">Dojo Location: {{ dojo.location }}</p>
+            <p class="card-text">Favorite Language: {{ dojo.language }}</p>
+            <p class="card-text">Comments: {{ dojo.comments }}</p>
         </div>
-        <div class="card-footer">
-            <a href="/">Home</a>
+        <div class="card-footer text-center">
+            <a href="/" class="btn btn-warning btn-outline-dark">Home</a>
         </div>
     </div>
 </body>
