@@ -1,9 +1,5 @@
 from flask_app.config.mysqlconnection import connect_to_mysql
 from flask import flash
-from flask_bcrypt import Bcrypt
-from flask_app import app
-
-bcrypt = Bcrypt(app)
 
 class User:
     db = "login_registration_schema"
@@ -20,11 +16,10 @@ class User:
     @classmethod
     def save(cls, data):
         query = """
-        INSERT INTO users (first_name, last_name, email, password, created_at, updated_at)
-        VALUES (%(first_name)s, %(last_name)s, %(email)s, %(password)s, NOW(), NOW());
+        INSERT INTO users (first_name, last_name, email, password)
+        VALUES (%(first_name)s, %(last_name)s, %(email)s, %(password)s)
         """
         return connect_to_mysql(cls.db).query_db(query, data)
-
     @classmethod
     def get_by_email(cls, data):
         query = "SELECT * FROM users WHERE email = %(email)s;"
@@ -34,30 +29,35 @@ class User:
     @classmethod
     def get_by_id(cls, user_id):
         query = "SELECT * FROM users WHERE id = %(id)s;"
-        data = {"id": user_id}
-        result = connect_to_mysql(cls.db).query_db(query, data)
+        result = connect_to_mysql(cls.db).query_db(query, {"id": user_id})
         return cls(result[0]) if result else None
 
     @staticmethod
     def validate_registration(data):
         is_valid = True
-        if len(data['first_name']) < 2 or not data['first_name'].isalpha():
-            flash("First name must be at least 2 characters and letters only", "register")
+        
+        # Validation du prénom
+        if len(data['first_name']) < 2:
+            flash("Le prénom doit avoir au moins 2 caractères")
             is_valid = False
-        if len(data['last_name']) < 2 or not data['last_name'].isalpha():
-            flash("Last name must be at least 2 characters and letters only", "register")
+            
+        # Validation du nom
+        if len(data['last_name']) < 2:
+            flash("Le nom doit avoir au moins 2 caractères")
             is_valid = False
-        if not data['email']:
-            flash("Email is required", "register")
+            
+        # Validation simple de l'email (juste vérifier s'il n'est pas vide)
+        if len(data['email']) < 1:
+            flash("L'email est requis")
             is_valid = False
-        if len(data['password']) < 8 or not any(char.isdigit() for char in data['password']) or not any(char.isupper() for char in data['password']):
-            flash("Password must be at least 8 characters, include a number and an uppercase letter", "register")
+            
+        # Validation du mot de passe
+        if len(data['password']) < 8:
+            flash("Le mot de passe doit avoir au moins 8 caractères")
             is_valid = False
+            
         if data['password'] != data['confirm_password']:
-            flash("Passwords must match", "register")
+            flash("Les mots de passe ne correspondent pas")
             is_valid = False
+            
         return is_valid
-
-    @staticmethod
-    def check_password(password, hashed_password):
-        return bcrypt.check_password_hash(hashed_password, password)
