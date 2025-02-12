@@ -1,0 +1,1 @@
+SELECT * FROM pulse_academy_schema.categories;

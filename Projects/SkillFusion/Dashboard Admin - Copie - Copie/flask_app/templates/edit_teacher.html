@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit {{ teacher.subject }} - THE PULSE ACADEMY</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>THE PULSE ACADEMY - Edit Teacher</h1>
+    </header>
+
+    <div class="sidebar">
+        <a href="/categories">Categories</a>
+        <a href="/students">Students</a>
+        <a href="/teachers">Teachers</a>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="card">
+                <h2>Edit Teacher - {{ teacher.subject }}</h2>
+
+                <form method="POST" action="/teachers/edit/{{ teacher.id }}">
+                    <div class="form-group">
+                        <label for="subject">Subject:</label>
+                        <input type="text" name="subject" value="{{ teacher.subject }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="experience">Experience (years):</label>
+                        <input type="number" name="experience" value="{{ teacher.experience }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="year_of_graduation">Graduation Year:</label>
+                        <input type="number" name="year_of_graduation" value="{{ teacher.year_of_graduation }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="most_recent_position">Most Recent Position:</label>
+                        <input type="text" name="most_recent_position" value="{{ teacher.most_recent_position }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="competences">Competencies:</label>
+                        <textarea name="competences" required>{{ teacher.competences }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="cv_file">CV File URL:</label>
+                        <input type="text" name="cv_file" value="{{ teacher.cv_file }}" required>
+                    </div>
+                    <button type="submit" class="button">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

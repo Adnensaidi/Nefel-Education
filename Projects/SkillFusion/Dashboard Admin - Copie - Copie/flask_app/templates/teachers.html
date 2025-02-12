@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Requests</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>THE PULSE ACADEMY - Teacher Requests</h1>
+    </header>
+
+    <div class="sidebar">
+        <a href="/categories">Categories</a>
+        <a href="/students">Students</a>
+        <a href="/teachers">Teachers</a>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="card">
+                <h2>All Teacher Requests</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Subject</th>
+                            <th>Experience</th>
+                            <th>CV</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for teacher in teachers %}
+                        <tr>
+                            <td>{{ teacher.name }}</td>
+                            <td>{{ teacher.subject }}</td>
+                            <td>{{ teacher.experience }} years</td>
+                            <td><a href="{{ url_for('download_cv', filename=teacher.cv_file) }}" target="_blank">View CV</a></td>
+                            <td>
+                                <form action="/teachers/accept/{{ teacher.id }}" method="POST">
+                                    <select name="category_id" required>
+                                        <option value="">Select Category</option>
+                                        {% for category in categories %}
+                                        <option value="{{ category.id }}">{{ category.title }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <button type="submit" class="button">Accept</button>
+                                </form>
+                                <form action="/teachers/reject/{{ teacher.id }}" method="POST">
+                                    <button type="submit" class="button">Reject</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <div class="actions">
+                    <a href="/teachers/apply" class="button">Return to Apply as a Teacher</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

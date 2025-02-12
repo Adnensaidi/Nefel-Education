@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Requests</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>THE PULSE ACADEMY - Student Requests</h1>
+    </header>
+
+    <div class="sidebar">
+        <a href="/categories">Categories</a>
+        <a href="/students">Students</a>
+        <a href="/teachers">Teachers</a>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="card">
+                <h2>All Student Requests</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for request in requests %}
+                            <tr>
+                                <td>{{ request.username }}</td>
+                                <td>{{ request.email }}</td>
+                                <td>{{ request.status }}</td>
+                                <td>
+                                    <form action="/accept_request/{{ request.id }}" method="POST">
+                                        <button type="submit" class="button">Accept</button>
+                                    </form>
+                                    <form action="/reject_request/{{ request.id }}" method="POST">
+                                        <button type="submit" class="button">Reject</button>
+                                    </form>
+                                    <form action="/remove_request/{{ request.id }}" method="POST">
+                                        <button type="submit" class="button">Remove</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="/requests" class="button">Back to Requests</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

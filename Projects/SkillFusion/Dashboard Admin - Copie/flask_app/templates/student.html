@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students - Admin Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>THE PULSE ACADEMY - Students</h1>
+    </header>
+
+    <div class="sidebar">
+        <a href="/categories">Categories</a>
+        <a href="/students">Students</a>
+        <a href="/teachers">Teachers</a>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="card">
+                <h2>All Students</h2>
+
+                <ul class="table">
+                    {% for student in students %}
+                    <li>
+                        <strong>{{ student.username }}</strong>: {{ student.email }}
+                        <br>
+                        <img src="{{ student.profile_pic }}" alt="{{ student.username }}" width="100">
+                        <a href="/students/{{ student.id }}" class="button">View Details</a>
+                        <form action="/students/delete/{{ student.id }}" method="POST">
+                            <button type="submit" class="button">Delete</button>
+                        </form>
+                        <a href="/students/edit/{{ student.id }}" class="button">Edit</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+
+                <a href="/requests" class="button">Back to Requests</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

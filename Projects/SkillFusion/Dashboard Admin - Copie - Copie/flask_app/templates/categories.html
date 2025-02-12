@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - Admin Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" >
+</head>
+<body>
+    <header>
+        <h1>THE PULSE ACADEMY - Categories</h1>
+    </header>
+
+    <div class="sidebar">
+        <a href="/categories">Categories</a>
+        <a href="/students">Students</a>
+        <a href="/teachers">Teachers</a>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="card">
+                <h2>All Categories</h2>
+                
+                <form method="POST" action="/categories/create">
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea name="description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Image URL:</label>
+                        <input type="text" name="image" required>
+                    </div>
+                    <button type="submit" class="button">Add Category</button>
+                </form>
+
+                <h3>Existing Categories:</h3>
+                <ul class="table">
+                    {% for category in categories %}
+                    <li>
+                        <strong><a href="/categories/{{category.id}}">{{ category.title }}</a></strong>: {{ category.description }}
+                        <br>
+                        <img src="{{ category.image }}" alt="{{ category.title }}" width="100">
+                    </li>
+                    <li>
+                        <form action="/categories/delete/{{category.id}}" method="POST">
+                            <button type="submit" class="button">Delete</button>
+                        </form>
+                        <a href="/categories/edit/{{category.id}}" class="button">Edit</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

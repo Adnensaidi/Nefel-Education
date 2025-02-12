@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>THE PULSE ACADEMY - Category Details</h1>
+    </header>
+
+    <div class="sidebar">
+        <a href="/categories">Categories</a>
+        <a href="/students">Students</a>
+        <a href="/teachers">Teachers</a>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="card">
+                {% if category.image %}
+                    <img src="{{ url_for('static', filename='uploads/' + category.image) }}" alt="{{ category.title }}" width="200">
+                {% else %}
+                    <img src="{{ url_for('static', filename='images/default-category.jpg') }}" alt="Default Category Image" width="200">
+                {% endif %}
+                
+                <h2>{{ category.title }}</h2>
+                <p>{{ category.description }}</p>
+
+                <div class="actions">
+                    <a href="/categories/edit/{{ category.id }}" class="button">Edit</a>
+                    <form action="/categories/delete/{{ category.id }}" method="POST" style="display:inline;">
+                        <button type="submit" class="button delete">Delete</button>
+                    </form>
+                </div>
+
+                <h3>Teachers in this Category</h3>
+                <ul>
+                    {% if category.teachers %}
+                        {% for teacher in category.teachers %}
+                            <li>
+                                {{ teacher.name }} - {{ teacher.subject }} 
+                                ({{ teacher.experience }} years of experience)
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        <li>No teachers assigned to this category.</li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
