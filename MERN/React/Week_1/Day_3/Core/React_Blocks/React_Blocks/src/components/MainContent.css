@@ -1,0 +1,13 @@
+.main-content {
+    background-color: #e06666;
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.subcontent-container {
+    display: flex;
+    gap: 20px;
+}
