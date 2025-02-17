@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+.registrationForm {
+    background-image: url(../assets/crBG.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Main App Container  */
+.app-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form-container {
+    background-color: aliceblue;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.input-group{
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.submit-button{
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+}
