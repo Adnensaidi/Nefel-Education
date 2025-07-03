@@ -74,12 +74,16 @@ public class BookController {
     }
 
     @PutMapping("/books/edit/{bookId}")
-    public String handleEdit(@PathVariable long bookId, @Valid @ModelAttribute Book book, BindingResult result,
-            HttpSession session, Model model) {
+    public String handleEdit(@PathVariable long bookId,
+                            @Valid @ModelAttribute Book book,
+                            BindingResult result,
+                            HttpSession session,
+                            Model model) {
         if (result.hasErrors()) {
-            book.setId(bookId);
+            model.addAttribute("book", book);
             return "edit";
         }
+
         bookServ.edit(book, bookId, userServ.getById((long) session.getAttribute("userId")));
         return "redirect:/home";
     }
